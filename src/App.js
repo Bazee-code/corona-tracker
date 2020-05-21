@@ -14,7 +14,8 @@ class App extends React.Component{
 
       this.state ={
         data : {},
-        country : ''
+        country : '',
+        mode : 'light'
       };
     };
 
@@ -55,21 +56,21 @@ class App extends React.Component{
   render(){
     const {data,country} = this.state;
     console.log(data);
-    
+
     return (
-      <div className="App ">
-        <div className="row">
-          <div className="col-sm-4 col-md-5"></div>
-          <div className="col-sm-4 col-md-4">
-            <img src="./logo1.jpg" className="img-fluid"/>
+        <div className="App ">
+          <div className="row">
+            <div className="col-sm-4 col-md-5"></div>
+            <div className="col-sm-4 col-md-4">
+              <img src="./logo1.jpg" className="img-fluid" alt="header"/>
+            </div>
+            <div className="col-sm-4 col-md-3"></div>
           </div>
-          <div className="col-sm-4 col-md-3"></div>
+          
+          <Cards data={data}/>
+          <Countries handleCountryChange ={this.handleCountryChange} />
+          <Charts data={data} country={country}/>
         </div>
-        
-        <Cards data={data}/>
-        <Countries handleCountryChange ={this.handleCountryChange} />
-        <Charts data={data} country={country}/>
-      </div>
     );
   }
 }
